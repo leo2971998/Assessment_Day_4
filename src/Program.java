@@ -26,31 +26,6 @@ class Contact {
         this.alternateMobile = alternateMobile;
         this.email = email;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public void setAlternateMobile(String alternateMobile) {
-        this.alternateMobile = alternateMobile;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void display() {
         System.out.println(
                 name + "  " +
@@ -99,21 +74,23 @@ public class Program {
         Contact[] contact = new Contact[n];
         for (int i = 0; i < n; i++) {
            str = sc.nextLine().split(",");
-           contact[i].name = "John";
+           contact[i] = new Contact(str[0], str[1], str[2], str[3], str[4], str[5]);
         }
         System.out.println("Enter a search type:");
         System.out.println("1.Name");
         System.out.println("2.Email Domain:");
-        int num = sc.nextInt();
+        Scanner sc1 = new Scanner(System.in);
+        int num = sc1.nextInt();
         switch (num) {
             case 1:
+                System.out.println("Enter the names(separated by comma): ");
                 String[] name = input.readLine().split(",");
-                ContactBO c = null;
+                ContactBO c = new ContactBO();
                 c.FindContact(contact, name);
                 break;
             case 2:
-                ContactBO c1 = null;
-                String domain = sc.next();
+                ContactBO c1 = new ContactBO();
+                String domain = sc1.next();
                 c1.FindDomain(contact, domain);
                 break;
             default:
