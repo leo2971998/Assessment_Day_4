@@ -44,7 +44,7 @@ class ContactBO {
     public Contact[] FindContact(Contact[] contactlist, String[] name) {
         for(int i = 0; i < contactlist.length; i++) {
            for(int j = 0; j < name.length; j++) {
-               if(name[j].equals(contactlist[i].name)) {
+               if(contactlist[i].name.contains(name[j]) == true) {
                    contactlist[i].display();
                }
            }
